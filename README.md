@@ -20,20 +20,6 @@
 
 Read the **[official documentation](https://justinmahar.github.io/subscribe-events/)**.
 
-## Donate 
-
-This project is the result of countless hours of work and I really hope it saves you hours of your own precious time.
-
-If you would like to join others in showing support for the development of this project, then please feel free to buy me a coffee.
-
-<a href="https://paypal.me/thejustinmahar/5">
-  <img src="https://justinmahar.github.io/subscribe-events/support/coffee-1.png" alt="Buy me a coffee" height="35" />
-</a> <a href="https://paypal.me/thejustinmahar/15">
-  <img src="https://justinmahar.github.io/subscribe-events/support/coffee-3.png" alt="Buy me 3 coffees" height="35" />
-</a> <a href="https://paypal.me/thejustinmahar/25">
-  <img src="https://justinmahar.github.io/subscribe-events/support/coffee-5.png" alt="Buy me 5 coffees" height="35" />
-</a>
-
 ## Overview
 
 Easily subscribe to and from events in JavaScript.
