@@ -35,6 +35,26 @@ export declare class Subscribe {
      */
     static subscribeDOMEvent(domObj: Window | Node, eventName: string, listener: (...args: any[]) => void): Unsubscribe;
     /**
+     * Sets a timer which executes a function once the timer expires using `setTimeout`.
+     * Returns an unsubscribe function that clears the timeout using `clearTimeout`.
+     *
+     * @param handler A function to be executed after the timer expires.
+     * @param delay The time, in milliseconds that the timer should wait before the specified function or code is executed. If this parameter is omitted, a value of 0 is used, meaning execute "immediately", or more accurately, the next event cycle.
+     * @param args Additional arguments which are passed through to the handler specified.
+     * @returns The Unsubscribe function for this subscription.
+     */
+    static subscribeTimeout<TArgs extends any[]>(handler: (args: void) => void | ((...args: TArgs) => void) | TimerHandler, delay?: number, ...args: TArgs): Unsubscribe;
+    /**
+     * Repeatedly calls a function with a fixed time delay between each call using `setInterval`.
+     * Returns an unsubscribe function that clears the interval using `clearInterval`.
+     *
+     * @param handler A function to be executed after the timer expires.
+     * @param delay The time, in milliseconds (thousandths of a second), the timer should delay in between executions of the specified function or code. Defaults to 0 if not specified.
+     * @param args Additional arguments which are passed through to the handler once the timer expires.
+     * @returns The Unsubscribe function for this subscription.
+     */
+    static subscribeInterval<TArgs extends any[]>(handler: (args: void) => void | ((...args: TArgs) => void) | TimerHandler, delay?: number, ...args: TArgs): Unsubscribe;
+    /**
      * Call all unsubscribe functions passed in. Can pass either an array of unsubscribe functions,
      * or a single unsubscribe function.
      *
@@ -104,6 +124,30 @@ export declare class Subscriptions {
      * @returns The Unsubscribe function for this subscription.
      */
     subscribeDOMEvent(domObj: Window | Node, eventName: string, listener: (...args: any[]) => void): Unsubscribe;
+    /**
+     * Sets a timer which executes a function once the timer expires using `setTimeout`.
+     * Returns an unsubscribe function that clears the timeout using `clearTimeout`.
+     *
+     * The Unsubscribe will be added to the internal list of unsubs. You can unsubscribe all by calling `unsubscribeAll()`.
+     *
+     * @param handler A function to be executed after the timer expires.
+     * @param delay The time, in milliseconds that the timer should wait before the specified function or code is executed. If this parameter is omitted, a value of 0 is used, meaning execute "immediately", or more accurately, the next event cycle.
+     * @param args Additional arguments which are passed through to the handler specified.
+     * @returns The Unsubscribe function for this subscription.
+     */
+    subscribeTimeout<TArgs extends any[]>(handler: (args: void) => void | ((...args: TArgs) => void) | TimerHandler, delay?: number, ...args: TArgs): Unsubscribe;
+    /**
+     * Repeatedly calls a function with a fixed time delay between each call using `setInterval`.
+     * Returns an unsubscribe function that clears the interval using `clearInterval`.
+     *
+     * The Unsubscribe will be added to the internal list of unsubs. You can unsubscribe all by calling `unsubscribeAll()`.
+     *
+     * @param handler A function to be executed after the timer expires.
+     * @param delay The time, in milliseconds (thousandths of a second), the timer should delay in between executions of the specified function or code. Defaults to 0 if not specified.
+     * @param args Additional arguments which are passed through to the handler once the timer expires.
+     * @returns The Unsubscribe function for this subscription.
+     */
+    subscribeInterval<TArgs extends any[]>(handler: (args: void) => void | ((...args: TArgs) => void) | TimerHandler, delay?: number, ...args: TArgs): Unsubscribe;
     /**
      * Call all unsubscribe functions and clear the unsubscribe list.
      */

@@ -54,6 +54,32 @@ class Subscribe {
         };
     }
     /**
+     * Sets a timer which executes a function once the timer expires using `setTimeout`.
+     * Returns an unsubscribe function that clears the timeout using `clearTimeout`.
+     *
+     * @param handler A function to be executed after the timer expires.
+     * @param delay The time, in milliseconds that the timer should wait before the specified function or code is executed. If this parameter is omitted, a value of 0 is used, meaning execute "immediately", or more accurately, the next event cycle.
+     * @param args Additional arguments which are passed through to the handler specified.
+     * @returns The Unsubscribe function for this subscription.
+     */
+    static subscribeTimeout(handler, delay, ...args) {
+        const timeout = setTimeout(handler, delay, args);
+        return () => clearTimeout(timeout);
+    }
+    /**
+     * Repeatedly calls a function with a fixed time delay between each call using `setInterval`.
+     * Returns an unsubscribe function that clears the interval using `clearInterval`.
+     *
+     * @param handler A function to be executed after the timer expires.
+     * @param delay The time, in milliseconds (thousandths of a second), the timer should delay in between executions of the specified function or code. Defaults to 0 if not specified.
+     * @param args Additional arguments which are passed through to the handler once the timer expires.
+     * @returns The Unsubscribe function for this subscription.
+     */
+    static subscribeInterval(handler, delay, ...args) {
+        const interval = setInterval(handler, delay, args);
+        return () => clearInterval(interval);
+    }
+    /**
      * Call all unsubscribe functions passed in. Can pass either an array of unsubscribe functions,
      * or a single unsubscribe function.
      *
@@ -152,6 +178,40 @@ class Subscriptions {
      */
     subscribeDOMEvent(domObj, eventName, listener) {
         const unsub = Subscribe.subscribeDOMEvent(domObj, eventName, listener);
+        this.unsubs.push(unsub);
+        return unsub;
+    }
+    /**
+     * Sets a timer which executes a function once the timer expires using `setTimeout`.
+     * Returns an unsubscribe function that clears the timeout using `clearTimeout`.
+     *
+     * The Unsubscribe will be added to the internal list of unsubs. You can unsubscribe all by calling `unsubscribeAll()`.
+     *
+     * @param handler A function to be executed after the timer expires.
+     * @param delay The time, in milliseconds that the timer should wait before the specified function or code is executed. If this parameter is omitted, a value of 0 is used, meaning execute "immediately", or more accurately, the next event cycle.
+     * @param args Additional arguments which are passed through to the handler specified.
+     * @returns The Unsubscribe function for this subscription.
+     */
+    subscribeTimeout(handler, delay, ...args) {
+        const timeout = setTimeout(handler, delay, args);
+        const unsub = () => clearTimeout(timeout);
+        this.unsubs.push(unsub);
+        return unsub;
+    }
+    /**
+     * Repeatedly calls a function with a fixed time delay between each call using `setInterval`.
+     * Returns an unsubscribe function that clears the interval using `clearInterval`.
+     *
+     * The Unsubscribe will be added to the internal list of unsubs. You can unsubscribe all by calling `unsubscribeAll()`.
+     *
+     * @param handler A function to be executed after the timer expires.
+     * @param delay The time, in milliseconds (thousandths of a second), the timer should delay in between executions of the specified function or code. Defaults to 0 if not specified.
+     * @param args Additional arguments which are passed through to the handler once the timer expires.
+     * @returns The Unsubscribe function for this subscription.
+     */
+    subscribeInterval(handler, delay, ...args) {
+        const interval = setInterval(handler, delay, args);
+        const unsub = () => clearInterval(interval);
         this.unsubs.push(unsub);
         return unsub;
     }
