@@ -65,6 +65,38 @@ npm i subscribe-events
 
 ## Quick Start
 
+Create an instance of the `Subscriptions` class and use that to manage subscriptions.
+
+```jsx
+import { Subscriptions } from 'subscribe-events';
+```
+
+```jsx
+// Use this object to subscribe and unsubscribe
+const subscriptions = new Subscriptions();
+
+// ➡️ Event emitter subscription
+subscriptions.subscribeEvent(eventEmitter, 'my-event', myEventListener);
+// ➡️ DOM event subscription
+subscriptions.subscribeDOMEvent(document, 'keypress', keyPressListener);
+// ➡️ Custom listener interface subscription
+subscriptions.subscribe(() => {
+  thing.addObserver(thingObserver);
+  return () => thing.removeObserver(thingObserver);
+});
+// You can access all unsub functions directly via `subscriptions.unsubs`
+console.log(`There are ${subscriptions.unsubs.length} subscriptions!`);
+```
+
+When it's time to unsubscribe all listeners, call `unsubscribeAll()`:
+
+```jsx
+// Unsubscribe all listeners with one easy call!
+subscriptions.unsubscribeAll();
+```
+
+## Example
+
 Since it is a common use case, below is a full example of adding/removing listeners in React using the `Subscriptions` class.
 
 In this example, we will subscribe to an event emitter, a DOM event, and a custom listener interface.
@@ -106,10 +138,10 @@ export const MyComponent = (props) => {
       return () => resizeObserver.unobserve(targetElement);
     });
 
-    // You can access all unsub functions directly, if you'd like
+    // You can access all unsub functions directly via `subscriptions.unsubs`
     console.log(`There are ${subscriptions.unsubs.length} subscriptions!`);
 
-    // Unsubscribe all with one easy call!
+    // Unsubscribe all listeners with one easy call!
     return () => subscriptions.unsubscribeAll();
   }, []);
 
