@@ -149,6 +149,14 @@ export declare class Subscriptions {
      */
     subscribeInterval<TArgs extends any[]>(handler: (args: void) => void | ((...args: TArgs) => void) | TimerHandler, delay?: number, ...args: TArgs): Unsubscribe;
     /**
+     * Pushes an unsubscribe function onto the subscription list.
+     *
+     * You can unsubscribe all by calling `unsubscribeAll()`.
+     *
+     * @param unsub The unsubscribe function to push to the subscription list.
+     */
+    pushUnsubscribe(unsub: Unsubscribe): void;
+    /**
      * Call all unsubscribe functions and clear the unsubscribe list.
      */
     unsubscribeAll(): void;

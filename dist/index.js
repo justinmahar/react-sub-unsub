@@ -148,7 +148,7 @@ class Subscriptions {
      */
     subscribe(subscribe) {
         const unsub = Subscribe.subscribe(subscribe);
-        this.unsubs.push(unsub);
+        this.pushUnsubscribe(unsub);
         return unsub;
     }
     /**
@@ -163,7 +163,7 @@ class Subscriptions {
      */
     subscribeEvent(eventEmitter, eventName, listener) {
         const unsub = Subscribe.subscribeEvent(eventEmitter, eventName, listener);
-        this.unsubs.push(unsub);
+        this.pushUnsubscribe(unsub);
         return unsub;
     }
     /**
@@ -178,7 +178,7 @@ class Subscriptions {
      */
     subscribeDOMEvent(domObj, eventName, listener) {
         const unsub = Subscribe.subscribeDOMEvent(domObj, eventName, listener);
-        this.unsubs.push(unsub);
+        this.pushUnsubscribe(unsub);
         return unsub;
     }
     /**
@@ -195,7 +195,7 @@ class Subscriptions {
     subscribeTimeout(handler, delay, ...args) {
         const timeout = setTimeout(handler, delay, args);
         const unsub = () => clearTimeout(timeout);
-        this.unsubs.push(unsub);
+        this.pushUnsubscribe(unsub);
         return unsub;
     }
     /**
@@ -212,15 +212,26 @@ class Subscriptions {
     subscribeInterval(handler, delay, ...args) {
         const interval = setInterval(handler, delay, args);
         const unsub = () => clearInterval(interval);
-        this.unsubs.push(unsub);
+        this.pushUnsubscribe(unsub);
         return unsub;
+    }
+    /**
+     * Pushes an unsubscribe function onto the subscription list.
+     *
+     * You can unsubscribe all by calling `unsubscribeAll()`.
+     *
+     * @param unsub The unsubscribe function to push to the subscription list.
+     */
+    pushUnsubscribe(unsub) {
+        this.unsubs.push(unsub);
     }
     /**
      * Call all unsubscribe functions and clear the unsubscribe list.
      */
     unsubscribeAll() {
         Subscribe.unsubscribeAll(this.unsubs);
-        this.unsubs = [];
+        // Empty the array, maintain the reference
+        this.unsubs.splice(0, this.unsubs.length);
     }
 }
 exports.Subscriptions = Subscriptions;
