@@ -67,10 +67,10 @@ In this example, we will subscribe to an event emitter, a DOM event, and a custo
 
 ```jsx
 import React from 'react';
-import { Subscriptions } from 'subscribe-events';
-```
+import { EventEmitter } from 'events';
 
-```jsx
+import { Subscriptions } from 'subscribe-events';
+
 export const eventEmitter = new EventEmitter();
 export const MyComponent = (props) => {
   React.useEffect(() => {

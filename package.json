@@ -38,7 +38,6 @@
     "listener",
     "listeners"
   ],
-  "peerDependencies": {},
   "devDependencies": {
     "@babel/core": "^7.17.2",
     "@storybook/addon-actions": "^6.4.18",
@@ -56,8 +55,8 @@
     "html-webpack-plugin": "^5.5.0",
     "lockblocks": "^1.0.9",
     "prettier": "^2.5.1",
-    "react": "18",
-    "react-dom": "18",
+    "react": "^18.1.0",
+    "react-dom": "^18.1.0",
     "react-html-props": "^1.0.32",
     "react-markdown": "^8.0.0",
     "typescript": "^4.5.5",
