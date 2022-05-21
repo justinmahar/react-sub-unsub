@@ -267,7 +267,6 @@ export class Subscriptions {
    */
   public unsubscribeAll(): void {
     Subscribe.unsubscribeAll(this.unsubs);
-    // Empty the array, maintain the reference
-    this.unsubs.splice(0, this.unsubs.length);
+    this.unsubs = [];
   }
 }
