@@ -167,7 +167,7 @@ export class Subscriptions {
    */
   public subscribe(subscribe: () => Unsubscribe): Unsubscribe {
     const unsub = Subscribe.subscribe(subscribe);
-    this.unsubs.push(unsub);
+    this.pushUnsubscribe(unsub);
     return unsub;
   }
 
@@ -187,7 +187,7 @@ export class Subscriptions {
     listener: (...args: any[]) => void,
   ): Unsubscribe {
     const unsub = Subscribe.subscribeEvent(eventEmitter, eventName, listener);
-    this.unsubs.push(unsub);
+    this.pushUnsubscribe(unsub);
     return unsub;
   }
 
@@ -203,7 +203,7 @@ export class Subscriptions {
    */
   public subscribeDOMEvent(domObj: Window | Node, eventName: string, listener: (...args: any[]) => void): Unsubscribe {
     const unsub = Subscribe.subscribeDOMEvent(domObj, eventName, listener);
-    this.unsubs.push(unsub);
+    this.pushUnsubscribe(unsub);
     return unsub;
   }
 
@@ -225,7 +225,7 @@ export class Subscriptions {
   ): Unsubscribe {
     const timeout = setTimeout(handler, delay, args);
     const unsub = () => clearTimeout(timeout);
-    this.unsubs.push(unsub);
+    this.pushUnsubscribe(unsub);
     return unsub;
   }
 
@@ -247,8 +247,19 @@ export class Subscriptions {
   ): Unsubscribe {
     const interval = setInterval(handler, delay, args);
     const unsub = () => clearInterval(interval);
-    this.unsubs.push(unsub);
+    this.pushUnsubscribe(unsub);
     return unsub;
+  }
+
+  /**
+   * Pushes an unsubscribe function onto the subscription list.
+   *
+   * You can unsubscribe all by calling `unsubscribeAll()`.
+   *
+   * @param unsub The unsubscribe function to push to the subscription list.
+   */
+  public pushUnsubscribe(unsub: Unsubscribe): void {
+    this.unsubs.push(unsub);
   }
 
   /**
@@ -256,6 +267,7 @@ export class Subscriptions {
    */
   public unsubscribeAll(): void {
     Subscribe.unsubscribeAll(this.unsubs);
-    this.unsubs = [];
+    // Empty the array, maintain the reference
+    this.unsubs.splice(0, this.unsubs.length);
   }
 }

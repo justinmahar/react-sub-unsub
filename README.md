@@ -85,6 +85,11 @@ subscriptions.subscribeInterval(() => {
   console.log('Interval fired!');
 }, 1000);
 
+// ➡️ Push a custom unsubscribe function
+subscriptions.pushUnsubscribe(() => {
+  console.log('Totally custom unsubscribe function!');
+});
+
 // You can access all unsub functions directly via `subscriptions.unsubs`
 console.log(`There are ${subscriptions.unsubs.length} subscriptions!`);
 ```
