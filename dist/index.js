@@ -40,17 +40,28 @@ class Subscribe {
         };
     }
     /**
-     * Subscribe to an event on a DOM object (Window or Node). Returns a function that will unsubscribe the listener.
+     * Appends an event listener for events whose type attribute value is type. The callback argument sets the callback
+     * that will be invoked when the event is dispatched.
+     *
+     * The options argument sets listener-specific options. For compatibility this can be a boolean, in which case the
+     * method behaves exactly as if the value was specified as options's capture.
+     *
+     * When set to true, options's capture prevents callback from being invoked when the event's eventPhase attribute
+     * value is BUBBLING_PHASE. When false (or not present), callback will not be invoked when event's eventPhase attribute
+     * value is CAPTURING_PHASE. Either way, callback will be invoked if event's eventPhase attribute value is AT_TARGET.
+     *
+     * Returns a function that will unsubscribe the listener.
      *
      * @param domObj The DOM object to subscribe to for events.
      * @param eventName The name of the event to listen for.
      * @param listener The listener callback that is called when the event occurs.
+     * @param options Listener-specific options. See function description.
      * @returns The Unsubscribe function for this subscription.
      */
-    static subscribeDOMEvent(domObj, eventName, listener) {
-        domObj.addEventListener(eventName, listener);
+    static subscribeDOMEvent(domObj, eventName, listener, options) {
+        domObj.addEventListener(eventName, listener, options);
         return () => {
-            domObj.removeEventListener(eventName, listener);
+            domObj.removeEventListener(eventName, listener, options);
         };
     }
     /**
