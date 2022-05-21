@@ -27,7 +27,17 @@
   "bugs": {
     "url": "https://github.com/justinmahar/subscribe-events/issues"
   },
-  "keywords": [],
+  "keywords": [
+    "subscribe",
+    "unsubscribe",
+    "node",
+    "event",
+    "events",
+    "subscription",
+    "subscriptions",
+    "listener",
+    "listeners"
+  ],
   "peerDependencies": {},
   "devDependencies": {
     "@babel/core": "^7.17.2",
