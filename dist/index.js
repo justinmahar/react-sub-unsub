@@ -230,8 +230,7 @@ class Subscriptions {
      */
     unsubscribeAll() {
         Subscribe.unsubscribeAll(this.unsubs);
-        // Empty the array, maintain the reference
-        this.unsubs.splice(0, this.unsubs.length);
+        this.unsubs = [];
     }
 }
 exports.Subscriptions = Subscriptions;
