@@ -36,12 +36,22 @@ If you would like to join others in showing support for the development of this 
 
 ## Overview
 
-This section will contain an overview so people can have a high-level understanding of the project.
+Easily subscribe to and from events in JavaScript.
+
+When adding listeners, often you will need to remove that listener later. If you forget to do so, bugs or memory leaks may occur.
+
+To simplify this pattern, you can use the `Subscribe` and `Subscriptions` classes in this library. They provide built-in support for subscribing to [EventEmitter](https://nodejs.org/api/events.html#class-eventemitter) events and DOM object events, and support for events from any other listener interface.
 
 ### Features include:
 
-- **🚀 List your features, use fun [emojis](https://emojipedia.org/search/?q=rocket)**
-  - Give a little more info on each feature or mention benefits.
+- **🔔 Quickly and easily subscribe and unsubscribe to and from events**
+  - An easy way to subscribe and unsubscribe from events in JavaScript.
+- **⚛️ Perfect for React effects**
+  - Makes adding/removing listeners in React effects a breeze.
+- **💁‍♀️ Covers common use cases, as well as custom ones**
+  - Built-in support for [EventEmitter](https://nodejs.org/api/events.html#class-eventemitter) and DOM events, and custom.
+- **👍 Simple, flexible, and convenient**
+  - Use static functions yourself via `Subscribe`, or a `Subscriptions` instance for ultimate convenience.
 
 ## Installation
 
