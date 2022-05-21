@@ -61,15 +61,76 @@ npm i subscribe-events
 
 ## Quick Start
 
-This section will contain a copy/paste example so people can get started quickly.
+Since it is a common use case, below is a full example of adding/removing listeners in React using the `Subscriptions` class.
+
+In this example, we will subscribe to an event emitter, a DOM event, and a custom listener interface.
 
 ```jsx
-import { Example } from 'subscribe-events';
+import React from 'react';
+import { Subscriptions } from 'subscribe-events';
 ```
 
 ```jsx
-<Example label="Example Component" />
+export const eventEmitter = new EventEmitter();
+export const MyComponent = (props) => {
+  React.useEffect(() => {
+    // Listener functions
+    const myEventListener = () => {
+      console.log('My event fired!');
+    };
+    const keyPressListener = (e) => {
+      console.log('Key pressed!', e);
+    };
+    const bodySizeListener = (e) => {
+      console.log('Body size changed!', e);
+    };
+
+    // Use this object to subscribe and unsubscribe
+    const subscriptions = new Subscriptions();
+
+    // ➡️ Event emitter subscription
+    subscriptions.subscribeEvent(eventEmitter, 'my-event', myEventListener);
+
+    // ➡️ DOM event subscription
+    subscriptions.subscribeDOMEvent(document, 'keypress', keyPressListener);
+
+    // ➡️ Custom listener interface subscription
+    subscriptions.subscribe(() => {
+      const resizeObserver = new ResizeObserver(bodySizeListener);
+      const targetElement = document.getElementsByTagName('body')[0];
+      resizeObserver.observe(targetElement);
+      return () => resizeObserver.unobserve(targetElement);
+    });
+
+    // You can access all unsub functions directly, if you'd like
+    console.log(`There are ${subscriptions.unsubs.length} subscriptions!`);
+
+    // Unsubscribe all with one easy call!
+    return () => subscriptions.unsubscribeAll();
+  }, []);
+
+  // ...
+
+  return <div>My Component!</div>;
+};
 ```
+
+## Static Functions
+
+If you'd like to call the functions used by `Subscriptions` manually, you can use the static functions available in the `Subscribe` class:
+
+```js
+import { Subscribe } from 'subscribe-events';
+```
+
+Call any of the following:
+
+- `Subscribe.subscribe` - Call provided function to subscribe to an event and return an unsubscribe function.
+- `Subscribe.subscribeEvent` - Subscribe to an emitter event and return an unsubscribe function.
+- `Subscribe.subscribeDOMEvent` - Subscribe to a DOM event and return an unsubscribe function.
+- `Subscribe.unsubscribeAll` - Call all provided unsubscribed functions (array or single unsubscribe).
+
+See the JS docs for each for more details.
 
 ## TypeScript
 
