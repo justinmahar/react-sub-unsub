@@ -39,7 +39,7 @@ This library also includes an easy way to unsubscribe all listeners at once with
 - **💁‍♀️ Covers common use cases, as well as custom ones**
   - Built-in support for [EventEmitter](https://nodejs.org/api/events.html#class-eventemitter) and DOM events, and custom.
 - **⏰ Timeout and interval support**
-  - Includes support for [setTimeout](https://developer.mozilla.org/en-US/docs/Web/API/setTimeout) and [setInterval](https://developer.mozilla.org/en-US/docs/Web/API/setInterval).
+  - Includes support for [setTimeout](https://developer.mozilla.org/en-US/docs/Web/API/setTimeout) and [setInterval](https://developer.mozilla.org/en-US/docs/Web/API/setInterval) for convenience.
 - **⚛️ Perfect for React effects**
   - Makes adding/removing listeners in React effects a breeze.
 - **👍 Simple, flexible, and convenient**
@@ -75,6 +75,16 @@ subscriptions.subscribe(() => {
   return () => thing.removeObserver(thingObserver);
 });
 
+// ➡️ setTimeout subscription
+subscriptions.subscribeTimeout(() => {
+  console.log('Timeout fired!');
+}, 2000);
+
+// ➡️ setInterval subscription
+subscriptions.subscribeInterval(() => {
+  console.log('Interval fired!');
+}, 1000);
+
 // You can access all unsub functions directly via `subscriptions.unsubs`
 console.log(`There are ${subscriptions.unsubs.length} subscriptions!`);
 ```
@@ -99,16 +109,16 @@ import { EventEmitter } from 'events';
 import { Subscriptions } from 'subscribe-events';
 
 export const eventEmitter = new EventEmitter();
-export const MyComponent = (props) => {
+export const MyComponent = (props: any) => {
   React.useEffect(() => {
     // Listener functions
     const myEventListener = () => {
       console.log('My event fired!');
     };
-    const keyPressListener = (e) => {
+    const keyPressListener = (e: any) => {
       console.log('Key pressed!', e);
     };
-    const bodySizeListener = (e) => {
+    const bodySizeListener = (e: any) => {
       console.log('Body size changed!', e);
     };
 
@@ -128,6 +138,16 @@ export const MyComponent = (props) => {
       resizeObserver.observe(targetElement);
       return () => resizeObserver.unobserve(targetElement);
     });
+
+    // ➡️ setTimeout subscription
+    subscriptions.subscribeTimeout(() => {
+      console.log('Timeout fired!');
+    }, 2000);
+
+    // ➡️ setInterval subscription
+    subscriptions.subscribeInterval(() => {
+      console.log('Interval fired!');
+    }, 1000);
 
     // You can access all unsub functions directly via `subscriptions.unsubs`
     console.log(`There are ${subscriptions.unsubs.length} subscriptions!`);
