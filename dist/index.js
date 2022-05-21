@@ -62,7 +62,7 @@ class Subscribe {
      * @param args Additional arguments which are passed through to the handler specified.
      * @returns The Unsubscribe function for this subscription.
      */
-    static subscribeTimeout(handler, delay, ...args) {
+    static setTimeout(handler, delay, ...args) {
         const timeout = setTimeout(handler, delay, args);
         return () => clearTimeout(timeout);
     }
@@ -75,7 +75,7 @@ class Subscribe {
      * @param args Additional arguments which are passed through to the handler once the timer expires.
      * @returns The Unsubscribe function for this subscription.
      */
-    static subscribeInterval(handler, delay, ...args) {
+    static setInterval(handler, delay, ...args) {
         const interval = setInterval(handler, delay, args);
         return () => clearInterval(interval);
     }
@@ -192,7 +192,7 @@ class Subscriptions {
      * @param args Additional arguments which are passed through to the handler specified.
      * @returns The Unsubscribe function for this subscription.
      */
-    subscribeTimeout(handler, delay, ...args) {
+    setTimeout(handler, delay, ...args) {
         const timeout = setTimeout(handler, delay, args);
         const unsub = () => clearTimeout(timeout);
         this.pushUnsubscribe(unsub);
@@ -209,7 +209,7 @@ class Subscriptions {
      * @param args Additional arguments which are passed through to the handler once the timer expires.
      * @returns The Unsubscribe function for this subscription.
      */
-    subscribeInterval(handler, delay, ...args) {
+    setInterval(handler, delay, ...args) {
         const interval = setInterval(handler, delay, args);
         const unsub = () => clearInterval(interval);
         this.pushUnsubscribe(unsub);

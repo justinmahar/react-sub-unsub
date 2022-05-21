@@ -74,12 +74,12 @@ subscriptions.subscribe(() => {
 });
 
 // ➡️ setTimeout subscription
-subscriptions.subscribeTimeout(() => {
+subscriptions.setTimeout(() => {
   console.log('Timeout fired!');
 }, 2000);
 
 // ➡️ setInterval subscription
-subscriptions.subscribeInterval(() => {
+subscriptions.setInterval(() => {
   console.log('Interval fired!');
 }, 1000);
 
@@ -143,12 +143,12 @@ export const MyComponent = (props: any) => {
     });
 
     // ➡️ setTimeout subscription
-    subscriptions.subscribeTimeout(() => {
+    subscriptions.setTimeout(() => {
       console.log('Timeout fired!');
     }, 2000);
 
     // ➡️ setInterval subscription
-    subscriptions.subscribeInterval(() => {
+    subscriptions.setInterval(() => {
       console.log('Interval fired!');
     }, 1000);
 
@@ -178,8 +178,8 @@ Call any of the following:
 - `Subscribe.subscribe` - Call provided function to subscribe to an event and return an unsubscribe function.
 - `Subscribe.subscribeEvent` - Subscribe to an emitter event and return an unsubscribe function.
 - `Subscribe.subscribeDOMEvent` - Subscribe to a DOM event and return an unsubscribe function.
-- `Subscribe.subscribeTimeout` - Create a subscription using `setTimeout`, return an unsubscribe function.
-- `Subscribe.subscribeInterval` - Create a subscription using `setInterval`, return an unsubscribe function.
+- `Subscribe.setTimeout` - Create a subscription using `setTimeout`, return an unsubscribe function.
+- `Subscribe.setInterval` - Create a subscription using `setInterval`, return an unsubscribe function.
 - `Subscribe.unsubscribeAll` - Call all provided unsubscribe functions (array or single unsubscribe).
 
 See the JS docs for each for more details.

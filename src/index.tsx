@@ -74,7 +74,7 @@ export class Subscribe {
    * @param args Additional arguments which are passed through to the handler specified.
    * @returns The Unsubscribe function for this subscription.
    */
-  public static subscribeTimeout<TArgs extends any[]>(
+  public static setTimeout<TArgs extends any[]>(
     handler: (args: void) => void | ((...args: TArgs) => void) | TimerHandler,
     delay?: number,
     ...args: TArgs
@@ -92,7 +92,7 @@ export class Subscribe {
    * @param args Additional arguments which are passed through to the handler once the timer expires.
    * @returns The Unsubscribe function for this subscription.
    */
-  public static subscribeInterval<TArgs extends any[]>(
+  public static setInterval<TArgs extends any[]>(
     handler: (args: void) => void | ((...args: TArgs) => void) | TimerHandler,
     delay?: number,
     ...args: TArgs
@@ -218,7 +218,7 @@ export class Subscriptions {
    * @param args Additional arguments which are passed through to the handler specified.
    * @returns The Unsubscribe function for this subscription.
    */
-  public subscribeTimeout<TArgs extends any[]>(
+  public setTimeout<TArgs extends any[]>(
     handler: (args: void) => void | ((...args: TArgs) => void) | TimerHandler,
     delay?: number,
     ...args: TArgs
@@ -240,7 +240,7 @@ export class Subscriptions {
    * @param args Additional arguments which are passed through to the handler once the timer expires.
    * @returns The Unsubscribe function for this subscription.
    */
-  public subscribeInterval<TArgs extends any[]>(
+  public setInterval<TArgs extends any[]>(
     handler: (args: void) => void | ((...args: TArgs) => void) | TimerHandler,
     delay?: number,
     ...args: TArgs

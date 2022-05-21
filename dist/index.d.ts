@@ -43,7 +43,7 @@ export declare class Subscribe {
      * @param args Additional arguments which are passed through to the handler specified.
      * @returns The Unsubscribe function for this subscription.
      */
-    static subscribeTimeout<TArgs extends any[]>(handler: (args: void) => void | ((...args: TArgs) => void) | TimerHandler, delay?: number, ...args: TArgs): Unsubscribe;
+    static setTimeout<TArgs extends any[]>(handler: (args: void) => void | ((...args: TArgs) => void) | TimerHandler, delay?: number, ...args: TArgs): Unsubscribe;
     /**
      * Repeatedly calls a function with a fixed time delay between each call using `setInterval`.
      * Returns an unsubscribe function that clears the interval using `clearInterval`.
@@ -53,7 +53,7 @@ export declare class Subscribe {
      * @param args Additional arguments which are passed through to the handler once the timer expires.
      * @returns The Unsubscribe function for this subscription.
      */
-    static subscribeInterval<TArgs extends any[]>(handler: (args: void) => void | ((...args: TArgs) => void) | TimerHandler, delay?: number, ...args: TArgs): Unsubscribe;
+    static setInterval<TArgs extends any[]>(handler: (args: void) => void | ((...args: TArgs) => void) | TimerHandler, delay?: number, ...args: TArgs): Unsubscribe;
     /**
      * Call all unsubscribe functions passed in. Can pass either an array of unsubscribe functions,
      * or a single unsubscribe function.
@@ -135,7 +135,7 @@ export declare class Subscriptions {
      * @param args Additional arguments which are passed through to the handler specified.
      * @returns The Unsubscribe function for this subscription.
      */
-    subscribeTimeout<TArgs extends any[]>(handler: (args: void) => void | ((...args: TArgs) => void) | TimerHandler, delay?: number, ...args: TArgs): Unsubscribe;
+    setTimeout<TArgs extends any[]>(handler: (args: void) => void | ((...args: TArgs) => void) | TimerHandler, delay?: number, ...args: TArgs): Unsubscribe;
     /**
      * Repeatedly calls a function with a fixed time delay between each call using `setInterval`.
      * Returns an unsubscribe function that clears the interval using `clearInterval`.
@@ -147,7 +147,7 @@ export declare class Subscriptions {
      * @param args Additional arguments which are passed through to the handler once the timer expires.
      * @returns The Unsubscribe function for this subscription.
      */
-    subscribeInterval<TArgs extends any[]>(handler: (args: void) => void | ((...args: TArgs) => void) | TimerHandler, delay?: number, ...args: TArgs): Unsubscribe;
+    setInterval<TArgs extends any[]>(handler: (args: void) => void | ((...args: TArgs) => void) | TimerHandler, delay?: number, ...args: TArgs): Unsubscribe;
     /**
      * Pushes an unsubscribe function onto the subscription list.
      *
