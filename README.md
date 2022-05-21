@@ -77,13 +77,16 @@ const subscriptions = new Subscriptions();
 
 // ➡️ Event emitter subscription
 subscriptions.subscribeEvent(eventEmitter, 'my-event', myEventListener);
+
 // ➡️ DOM event subscription
 subscriptions.subscribeDOMEvent(document, 'keypress', keyPressListener);
+
 // ➡️ Custom listener interface subscription
 subscriptions.subscribe(() => {
   thing.addObserver(thingObserver);
   return () => thing.removeObserver(thingObserver);
 });
+
 // You can access all unsub functions directly via `subscriptions.unsubs`
 console.log(`There are ${subscriptions.unsubs.length} subscriptions!`);
 ```
