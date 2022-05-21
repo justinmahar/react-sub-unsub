@@ -28,7 +28,7 @@ When adding listeners, often you will need to remove that listener later. If you
 
 To simplify this pattern, you can use the `Subscribe` and `Subscriptions` classes in this library. When subscribing to an event, an unsubscribe function is returned. Calling this function will remove the listener.
 
-There is built-in support for subscribing to [EventEmitter](https://nodejs.org/api/events.html#class-eventemitter) events and DOM object events, and support for events from any other listener interface.
+There is built-in support for subscribing to [EventEmitter](https://nodejs.org/api/events.html#class-eventemitter) events and DOM object events, and support for events from custom listener interfaces. There is also support for timeouts and intervals.
 
 This library also includes an easy way to unsubscribe all listeners at once with a single call, and is a perfect complement to React effects.
 
@@ -36,10 +36,12 @@ This library also includes an easy way to unsubscribe all listeners at once with
 
 - **🔔 Quickly and easily subscribe and unsubscribe to and from events**
   - An easy way to subscribe and unsubscribe from events in JavaScript.
-- **⚛️ Perfect for React effects**
-  - Makes adding/removing listeners in React effects a breeze.
 - **💁‍♀️ Covers common use cases, as well as custom ones**
   - Built-in support for [EventEmitter](https://nodejs.org/api/events.html#class-eventemitter) and DOM events, and custom.
+- **⏰ Timeout and interval support**
+  - Includes support for [setTimeout](https://developer.mozilla.org/en-US/docs/Web/API/setTimeout) and [setInterval](https://developer.mozilla.org/en-US/docs/Web/API/setInterval).
+- **⚛️ Perfect for React effects**
+  - Makes adding/removing listeners in React effects a breeze.
 - **👍 Simple, flexible, and convenient**
   - Use static functions yourself via `Subscribe`, or a `Subscriptions` instance for ultimate convenience.
 
@@ -153,6 +155,8 @@ Call any of the following:
 - `Subscribe.subscribe` - Call provided function to subscribe to an event and return an unsubscribe function.
 - `Subscribe.subscribeEvent` - Subscribe to an emitter event and return an unsubscribe function.
 - `Subscribe.subscribeDOMEvent` - Subscribe to a DOM event and return an unsubscribe function.
+- `Subscribe.subscribeTimeout` - Create a subscription using `setTimeout`, return an unsubscribe function.
+- `Subscribe.subscribeInterval` - Create a subscription using `setInterval`, return an unsubscribe function.
 - `Subscribe.unsubscribeAll` - Call all provided unsubscribe functions (array or single unsubscribe).
 
 See the JS docs for each for more details.
