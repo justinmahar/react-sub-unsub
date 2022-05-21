@@ -99,6 +99,20 @@ export class Subscribe {
  * at once and clear the list.
  */
 export class Subscriptions {
+  /**
+   * Construct a new Subscriptions object.
+   *
+   * A Subscriptions object can be used to subscribe and unsubscribe to events,
+   * and to collect subscriptions in an array to be unsubscribed all at once.
+   *
+   * Calling any of the subscribe functions will add the unsubscribe function to
+   * an internal array. You can then call `unsubscribeAll()` to unsubscribe all
+   * at once and clear the list.
+   *
+   * You can optionally pass in an array of unsubscribe functions to start with.
+   *
+   * @param unsubs Optional array of unsubscribe functions. Defaults to an empty list.
+   */
   constructor(
     /** A list of unsubscribe functions for all subscribe calls that have been made. */
     public unsubs: Unsubscribe[] = [],
