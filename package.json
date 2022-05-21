@@ -1,6 +1,6 @@
 {
   "name": "subscribe-events",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "author": "Justin Mahar <contact@justinmahar.com>",
   "description": "Subscribe and unsubscribe to and from JS events with ease.",
   "homepage": "https://justinmahar.github.io/subscribe-events/",
