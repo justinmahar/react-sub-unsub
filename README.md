@@ -22,11 +22,9 @@ Read the **[official documentation](https://justinmahar.github.io/subscribe-even
 
 ## Overview
 
-Easily subscribe to events and timers in JavaScript.
+When adding event listeners, often you will need to remove that listener later. If you fail to do so, bugs or memory leaks can occur. The same applies for intervals and timeouts.
 
-When adding listeners, often you will need to remove that listener later. If you forget to do so, bugs or memory leaks may occur. The same applies for intervals and timeouts.
-
-To simplify this pattern, you can use the `Subscribe` and `Subscriptions` classes in this library. When subscribing to an event or timer, an unsubscribe function is returned. Calling this function will remove the listener.
+To simplify this pattern, use the `Subscriptions` class in this library. When subscribing to an event or timer through this class, an unsubscribe function is stored and returned. Calling this function will remove the listener.
 
 There is built-in support for subscribing to [EventEmitter](https://nodejs.org/api/events.html#class-eventemitter) events and DOM object events, and support for events from custom listener interfaces. There is also support for timeouts and intervals.
 
