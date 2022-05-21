@@ -40,11 +40,11 @@ Easily subscribe to and from events in JavaScript.
 
 When adding listeners, often you will need to remove that listener later. If you forget to do so, bugs or memory leaks may occur.
 
-To simplify this pattern, you can use the `Subscribe` and `Subscriptions` classes in this library. They provide built-in support for subscribing to [EventEmitter](https://nodejs.org/api/events.html#class-eventemitter) events and DOM object events, and support for events from any other listener interface.
+To simplify this pattern, you can use the `Subscribe` and `Subscriptions` classes in this library. When subscribing to an event, an unsubscribe function is returned. Calling this function will remove the listener.
 
-When subscribing to an even, an unsubscribe function is returned. Calling this function will remove the listener.
+There is built-in support for subscribing to [EventEmitter](https://nodejs.org/api/events.html#class-eventemitter) events and DOM object events, and support for events from any other listener interface.
 
-This library includes an easy way to unsubscribe all listeners at once, with a single call, and is a perfect complement to React effects.
+This library also includes an easy way to unsubscribe all listeners at once with a single call, and is a perfect complement to React effects.
 
 ### Features include:
 
