@@ -1,9 +1,9 @@
 {
-  "name": "react-kindling",
-  "version": "2.0.8",
+  "name": "subscribe-events",
+  "version": "0.0.0",
   "author": "Justin Mahar <contact@justinmahar.com>",
-  "description": "A template to build, test, and share React components and hooks easily.",
-  "homepage": "https://justinmahar.github.io/react-kindling/",
+  "description": "Subscribe and unsubscribe to and from JS events with ease.",
+  "homepage": "https://justinmahar.github.io/subscribe-events/",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
@@ -22,16 +22,13 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/justinmahar/react-kindling.git"
+    "url": "git+https://github.com/justinmahar/subscribe-events.git"
   },
   "bugs": {
-    "url": "https://github.com/justinmahar/react-kindling/issues"
+    "url": "https://github.com/justinmahar/subscribe-events/issues"
   },
   "keywords": [],
-  "peerDependencies": {
-    "react": ">=17",
-    "react-dom": ">=17"
-  },
+  "peerDependencies": {},
   "devDependencies": {
     "@babel/core": "^7.17.2",
     "@storybook/addon-actions": "^6.4.18",
@@ -49,6 +46,8 @@
     "html-webpack-plugin": "^5.5.0",
     "lockblocks": "^1.0.9",
     "prettier": "^2.5.1",
+    "react": "18",
+    "react-dom": "18",
     "react-html-props": "^1.0.32",
     "react-markdown": "^8.0.0",
     "typescript": "^4.5.5",
