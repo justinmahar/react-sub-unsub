@@ -2,7 +2,7 @@
   🔔 subscribe-events
 </h2>
 <h3 align="center">
-  Subscribe and unsubscribe to and from JS events with ease.
+  Subscribe and unsubscribe to and from JS events and timers with ease.
 </h3>
 <p align="center">
   <a href="https://badge.fury.io/js/subscribe-events" target="_blank" rel="noopener noreferrer">
