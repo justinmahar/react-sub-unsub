@@ -22,11 +22,11 @@ Read the **[official documentation](https://justinmahar.github.io/subscribe-even
 
 ## Overview
 
-Easily subscribe to and from events in JavaScript.
+Easily subscribe to and from events and timers in JavaScript.
 
-When adding listeners, often you will need to remove that listener later. If you forget to do so, bugs or memory leaks may occur.
+When adding listeners, often you will need to remove that listener later. If you forget to do so, bugs or memory leaks may occur. The same applies for intervals and timeouts.
 
-To simplify this pattern, you can use the `Subscribe` and `Subscriptions` classes in this library. When subscribing to an event, an unsubscribe function is returned. Calling this function will remove the listener.
+To simplify this pattern, you can use the `Subscribe` and `Subscriptions` classes in this library. When subscribing to an event or timer, an unsubscribe function is returned. Calling this function will remove the listener.
 
 There is built-in support for subscribing to [EventEmitter](https://nodejs.org/api/events.html#class-eventemitter) events and DOM object events, and support for events from custom listener interfaces. There is also support for timeouts and intervals.
 
@@ -39,9 +39,9 @@ This library also includes an easy way to unsubscribe all listeners at once with
 - **💁‍♀️ Covers common use cases, as well as custom ones**
   - Built-in support for [EventEmitter](https://nodejs.org/api/events.html#class-eventemitter) and DOM events, and custom.
 - **⏰ Timeout and interval support**
-  - Includes support for [setTimeout](https://developer.mozilla.org/en-US/docs/Web/API/setTimeout) and [setInterval](https://developer.mozilla.org/en-US/docs/Web/API/setInterval) for convenience.
+  - Includes support for [setTimeout](https://developer.mozilla.org/en-US/docs/Web/API/setTimeout) and [setInterval](https://developer.mozilla.org/en-US/docs/Web/API/setInterval) to make life easier.
 - **⚛️ Perfect for React effects**
-  - Makes adding/removing listeners in React effects a breeze.
+  - Makes adding/removing listeners and timers in React effects a breeze.
 - **👍 Simple, flexible, and convenient**
   - Use static functions yourself via `Subscribe`, or a `Subscriptions` instance for ultimate convenience.
 
