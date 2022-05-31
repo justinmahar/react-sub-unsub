@@ -1,7 +1,7 @@
-# NOTE: This package has been renamed to `subunsub`
+# NOTE: This package has been renamed to `subscribe-easy`
 
 <h2 align="center">
-  🔔 sub<b>unsub</b>
+  🔔 subscribe-easy
 </h2>
 
 <h3 align="center">
