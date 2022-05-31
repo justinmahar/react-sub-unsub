@@ -99,6 +99,16 @@ When it's time to unsubscribe all listeners, call `unsubAll()`:
 subs.unsubAll();
 ```
 
+Or you can create a cleanup function that can be called later by using `createCleanup()`:
+
+```jsx
+const cleanup = subs.createCleanup();
+// ...
+// Unsubscribe all listeners with the cleanup function
+cleanup();
+```
+
+
 ## Example
 
 Since it is a common use case, below is a full example of adding/removing listeners in React using the `Subs` class.
@@ -155,8 +165,8 @@ export const MyComponent = (props: any) => {
     // You can access all unsubscribe functions directly via `subs.list`
     console.log(`There are ${subs.list.length} subscriptions!`);
 
-    // Unsubscribe all listeners with one easy call!
-    return () => subs.unsubAll();
+    // Return a cleanup function that unsubscribes all listeners and timers
+    return subs.createCleanup();
   }, []);
 
   // ...
