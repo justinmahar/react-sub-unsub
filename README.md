@@ -1,6 +1,9 @@
+# NOTE: This package has been renamed to `subunsub`
+
 <h2 align="center">
-  🔔 subscribe-events
+  🔔 sub<b>unsub</b>
 </h2>
+
 <h3 align="center">
   Subscribe and unsubscribe to JS events and timers with ease.
 </h3>
@@ -99,7 +102,7 @@ When it's time to unsubscribe all listeners, call `unsubAll()`:
 subs.unsubAll();
 ```
 
-Or you can create a cleanup function that can be called later by using `createCleanup()`:
+Or, for frameworks like React, you can create a cleanup function that can be called later by using `createCleanup()`:
 
 ```jsx
 const cleanup = subs.createCleanup();
@@ -108,12 +111,14 @@ const cleanup = subs.createCleanup();
 cleanup();
 ```
 
-
 ## Example
 
-Since it is a common use case, below is a full example of adding/removing listeners in React using the `Subs` class.
+Since it's a common use case, below is a full example of adding/removing listeners in React using the `Subs` class.
 
-In this example, we will subscribe to an event emitter, a DOM event, and a custom listener interface.
+In this example, we will subscribe to an event emitter, a DOM event, and a custom listener interface, as well as some
+timers. 
+
+At the end we will return a cleanup function that unsubscribes all listeners and timers using `createCleanup()`.
 
 ```jsx
 import React from 'react';
