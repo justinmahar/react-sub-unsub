@@ -3,7 +3,7 @@
   "version": "2.0.1",
   "author": "Justin Mahar <contact@justinmahar.com>",
   "description": "Subscribe and unsubscribe to JS events and timers with ease.",
-  "homepage": "https://justinmahar.github.io/subscribe-events/",
+  "homepage": "https://justinmahar.github.io/subscribe-easy/",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
@@ -22,10 +22,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/justinmahar/subscribe-events.git"
+    "url": "git+https://github.com/justinmahar/subscribe-easy.git"
   },
   "bugs": {
-    "url": "https://github.com/justinmahar/subscribe-events/issues"
+    "url": "https://github.com/justinmahar/subscribe-easy/issues"
   },
   "keywords": [
     "subscribe",

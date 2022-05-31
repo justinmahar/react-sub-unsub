@@ -1,25 +1,25 @@
 <h2 align="center">
-  🔔 subscribe-easy
+  🔔 Subscribe Easy
 </h2>
 
 <h3 align="center">
   Subscribe and unsubscribe to JS events and timers with ease.
 </h3>
 <p align="center">
-  <a href="https://badge.fury.io/js/subscribe-events" target="_blank" rel="noopener noreferrer">
-    <img src="https://badge.fury.io/js/subscribe-events.svg" alt="npm Version" />
+  <a href="https://badge.fury.io/js/subscribe-easy" target="_blank" rel="noopener noreferrer">
+    <img src="https://badge.fury.io/js/subscribe-easy.svg" alt="npm Version" />
   </a>
-  <a href="https://github.com/justinmahar/subscribe-events/" target="_blank" rel="noopener noreferrer">
+  <a href="https://github.com/justinmahar/subscribe-easy/" target="_blank" rel="noopener noreferrer">
     <img src="https://img.shields.io/badge/GitHub-Source-success" alt="View project on GitHub" />
   </a>
-  <a href="https://github.com/justinmahar/subscribe-events/actions?query=workflow%3ADeploy" target="_blank" rel="noopener noreferrer">
-    <img src="https://github.com/justinmahar/subscribe-events/workflows/Deploy/badge.svg" alt="Deploy Status" />
+  <a href="https://github.com/justinmahar/subscribe-easy/actions?query=workflow%3ADeploy" target="_blank" rel="noopener noreferrer">
+    <img src="https://github.com/justinmahar/subscribe-easy/workflows/Deploy/badge.svg" alt="Deploy Status" />
   </a>
 </p>
 
 ## Documentation
 
-Read the **[official documentation](https://justinmahar.github.io/subscribe-events/)**.
+Read the **[official documentation](https://justinmahar.github.io/subscribe-easy/)**.
 
 ## Overview
 
@@ -47,7 +47,7 @@ This library also includes an easy way to unsubscribe all listeners at once with
 ## Installation
 
 ```
-npm i subscribe-events
+npm i subscribe-easy
 ```
 
 ## Quick Start
@@ -55,7 +55,7 @@ npm i subscribe-events
 Create an instance of the `Subs` class and use that to manage subscriptions.
 
 ```jsx
-import { Subs } from 'subscribe-events';
+import { Subs } from 'subscribe-easy';
 ```
 
 ```jsx
@@ -122,7 +122,7 @@ At the end we will return a cleanup function that unsubscribes all listeners and
 import React from 'react';
 import { EventEmitter } from 'events';
 
-import { Subs } from 'subscribe-events';
+import { Subs } from 'subscribe-easy';
 
 export const eventEmitter = new EventEmitter();
 export const MyComponent = (props: any) => {
@@ -183,7 +183,7 @@ export const MyComponent = (props: any) => {
 If you'd like to call the functions used by `Subs` manually, you can use the static functions available in the `Subscribe` class:
 
 ```js
-import { Subscribe } from 'subscribe-events';
+import { Subscribe } from 'subscribe-easy';
 ```
 
 Call any of the following:
@@ -214,10 +214,10 @@ Feel free to submit a pull request for bugs or additions, and make sure to updat
 
 For major changes, open an issue first to discuss what you'd like to change.
 
-## ⭐ Found It Helpful? [Star It!](https://github.com/justinmahar/subscribe-events/stargazers)
+## ⭐ Found It Helpful? [Star It!](https://github.com/justinmahar/subscribe-easy/stargazers)
 
-If you found this project helpful, let the community know by giving it a [star](https://github.com/justinmahar/subscribe-events/stargazers): [👉⭐](https://github.com/justinmahar/subscribe-events/stargazers)
+If you found this project helpful, let the community know by giving it a [star](https://github.com/justinmahar/subscribe-easy/stargazers): [👉⭐](https://github.com/justinmahar/subscribe-easy/stargazers)
 
 ## License
 
-See [LICENSE.md](https://justinmahar.github.io/subscribe-events/?path=/story/license--page).
+See [LICENSE.md](https://justinmahar.github.io/subscribe-easy/?path=/story/license--page).
