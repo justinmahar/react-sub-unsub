@@ -23,13 +23,17 @@ Read the **[official documentation](https://justinmahar.github.io/subscribe-easy
 
 ## Overview
 
-When adding event listeners, often you will need to remove that listener later. If you fail to do so, bugs or memory leaks can occur. The same applies for intervals and timeouts.
+Take all the frustration (and memory leaks) out of adding and removing listeners!
 
-To simplify this pattern, use the `Subs` class in this library. When subscribing to an event or timer through this class, an unsubscribe function is stored and returned. Calling this function will remove the listener or clear the timer.
+With this library, you can easily manage listeners, timers (intervals, timeouts), and anything else that follows the subscribe/unsubscribe pattern.
 
-There is built-in support for subscribing to [EventEmitter](https://nodejs.org/api/events.html#class-eventemitter) events and DOM object events, and support for events from custom listener interfaces. There is also support for timeouts and intervals.
+Simply use an instance of the `Subs` class in this library to subscribe to an event or timer. All unsubscribe functions are stored for later.
 
-This library also includes an easy way to unsubscribe all listeners at once with a single call, and is a perfect complement to React effects.
+When it's time to unsubscribe all listeners, just call `unsubAll()` to remove all listeners and clear all timers. Easy as that.
+
+You can also create a cleanup function using `createCleanup()` that will unsubscribe all listeners when called. This is particularly handy when used as the return value for [React effects](https://reactjs.org/docs/hooks-effect.html).
+
+See below for examples and more.
 
 ### Features include:
 
