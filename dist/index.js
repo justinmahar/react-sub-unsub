@@ -254,13 +254,14 @@ class Subs {
         this.list.splice(0, this.list.length);
     }
     /**
-     * Creates and returns a cleanup function that, when called, calls all unsubscribe functions.
+     * Creates and returns a cleanup function that, when called, calls all unsubscribe functions and clears the unsubscribe list.
      *
-     * @param unsubs All subscriptions to be unsubscribed when the returned cleanup function is called.
-     * @returns A cleanup function that unsubscribes all subscriptions.
+     * @returns A cleanup function that unsubscribes all subscriptions and clears the unsubscribe list.
      */
     createCleanup() {
-        return Subscribe.createCleanup(this.list);
+        return () => {
+            this.unsubAll();
+        };
     }
 }
 exports.Subs = Subs;
