@@ -191,6 +191,7 @@ Call any of the following:
 - `Subscribe.setTimeout` - Create a subscription using `setTimeout`, return an unsubscribe function.
 - `Subscribe.setInterval` - Create a subscription using `setInterval`, return an unsubscribe function.
 - `Subscribe.unsubAll` - Call all provided unsubscribe functions (array or single unsubscribe).
+- `Subscribe.createCleanup` - Create and return a cleanup function that, when called, calls all unsubscribe functions provided.
 
 See the JS docs for each for more details.
 
