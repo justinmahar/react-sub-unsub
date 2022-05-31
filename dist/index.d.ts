@@ -72,6 +72,13 @@ export declare class Subscribe {
      * @param unsubs An array of unsubscribe functions, or a single unsubscribe function.
      */
     static unsubAll(unsubs: Unsubscribe | Unsubscribe[]): void;
+    /**
+     * Creates and returns a cleanup function that, when called, calls all unsubscribe functions provided.
+     *
+     * @param unsubs All subscriptions to be unsubscribed when the returned cleanup function is called.
+     * @returns A cleanup function that unsubscribes all subscriptions provided.
+     */
+    static createCleanup(unsubs: Unsubscribe | Unsubscribe[]): () => void;
 }
 /**
  * A Subs object can be used to subscribe and unsubscribe to events,
@@ -171,4 +178,11 @@ export declare class Subs {
      * Call all unsubscribe functions and clear the unsubscribe list.
      */
     unsubAll(): void;
+    /**
+     * Creates and returns a cleanup function that, when called, calls all unsubscribe functions.
+     *
+     * @param unsubs All subscriptions to be unsubscribed when the returned cleanup function is called.
+     * @returns A cleanup function that unsubscribes all subscriptions.
+     */
+    createCleanup(): () => void;
 }

@@ -116,6 +116,15 @@ class Subscribe {
             }
         }
     }
+    /**
+     * Creates and returns a cleanup function that, when called, calls all unsubscribe functions provided.
+     *
+     * @param unsubs All subscriptions to be unsubscribed when the returned cleanup function is called.
+     * @returns A cleanup function that unsubscribes all subscriptions provided.
+     */
+    static createCleanup(unsubs) {
+        return () => Subscribe.unsubAll(unsubs);
+    }
 }
 exports.Subscribe = Subscribe;
 /**
@@ -243,6 +252,15 @@ class Subs {
         Subscribe.unsubAll(this.list);
         // Empty the array, maintain the reference
         this.list.splice(0, this.list.length);
+    }
+    /**
+     * Creates and returns a cleanup function that, when called, calls all unsubscribe functions.
+     *
+     * @param unsubs All subscriptions to be unsubscribed when the returned cleanup function is called.
+     * @returns A cleanup function that unsubscribes all subscriptions.
+     */
+    createCleanup() {
+        return Subscribe.createCleanup(this.list);
     }
 }
 exports.Subs = Subs;
