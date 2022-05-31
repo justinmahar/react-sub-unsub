@@ -3,7 +3,7 @@
 </h2>
 
 <h3 align="center">
-  Subscribe and unsubscribe to and from JS events and timers with ease.
+  Manage subscriptions to JS events and timers with ease.
 </h3>
 <p align="center">
   <a href="https://badge.fury.io/js/subscribe-easy" target="_blank" rel="noopener noreferrer">

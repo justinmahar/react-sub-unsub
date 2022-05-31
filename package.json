@@ -2,7 +2,7 @@
   "name": "subscribe-easy",
   "version": "2.0.3",
   "author": "Justin Mahar <contact@justinmahar.com>",
-  "description": "Subscribe and unsubscribe to and from JS events and timers with ease.",
+  "description": "Manage subscriptions to JS events and timers with ease.",
   "homepage": "https://justinmahar.github.io/subscribe-easy/",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
