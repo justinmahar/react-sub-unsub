@@ -3,7 +3,7 @@
 </h2>
 
 <h3 align="center">
-  Subscribe and unsubscribe to JS events and timers with ease.
+  Subscribe and unsubscribe to and from JS events and timers with ease.
 </h3>
 <p align="center">
   <a href="https://badge.fury.io/js/subscribe-easy" target="_blank" rel="noopener noreferrer">
@@ -25,7 +25,7 @@ Read the **[official documentation](https://justinmahar.github.io/subscribe-easy
 
 When adding event listeners, often you will need to remove that listener later. If you fail to do so, bugs or memory leaks can occur. The same applies for intervals and timeouts.
 
-To simplify this pattern, use the `Subs` class in this library. When subscribing to an event or timer through this class, an unsubscribe function is stored and returned. Calling this function will remove the listener.
+To simplify this pattern, use the `Subs` class in this library. When subscribing to an event or timer through this class, an unsubscribe function is stored and returned. Calling this function will remove the listener or clear the timer.
 
 There is built-in support for subscribing to [EventEmitter](https://nodejs.org/api/events.html#class-eventemitter) events and DOM object events, and support for events from custom listener interfaces. There is also support for timeouts and intervals.
 
@@ -33,8 +33,8 @@ This library also includes an easy way to unsubscribe all listeners at once with
 
 ### Features include:
 
-- **🔔 Quickly and easily subscribe and unsubscribe to events**
-  - An easy way to subscribe and unsubscribe from events in JavaScript.
+- **🔔 Quickly and easily subscribe and unsubscribe to and from events**
+  - An easy way to subscribe and unsubscribe to/from events in JavaScript.
 - **💁‍♀️ Covers common use cases, as well as custom ones**
   - Built-in support for [EventEmitter](https://nodejs.org/api/events.html#class-eventemitter) and DOM events, and custom.
 - **⏰ Timeout and interval support**
