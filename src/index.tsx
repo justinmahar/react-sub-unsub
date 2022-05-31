@@ -119,7 +119,7 @@ export class Subscribe {
    *
    * @param unsubs An array of unsubscribe functions, or a single unsubscribe function.
    */
-  public static unsubscribeAll(unsubs: Unsubscribe | Unsubscribe[]): void {
+  public static unsubAll(unsubs: Unsubscribe | Unsubscribe[]): void {
     if (Array.isArray(unsubs)) {
       unsubs.forEach((unsub) => {
         try {
@@ -139,31 +139,31 @@ export class Subscribe {
 }
 
 /**
- * A Subscriptions object can be used to subscribe and unsubscribe to events,
+ * A Subs object can be used to subscribe and unsubscribe to events,
  * and to collect subscriptions in an array to be unsubscribed all at once.
  *
  * Calling any of the subscribe functions will add the unsubscribe function to
- * an internal array. You can then call `unsubscribeAll()` to unsubscribe all
+ * an internal array. You can then call `unsubAll()` to unsubscribe all
  * at once and clear the list.
  */
-export class Subscriptions {
+export class Subs {
   /**
-   * Construct a new Subscriptions object.
+   * Construct a new Subs object.
    *
-   * A Subscriptions object can be used to subscribe and unsubscribe to events,
+   * A Subs object can be used to subscribe and unsubscribe to events,
    * and to collect subscriptions in an array to be unsubscribed all at once.
    *
    * Calling any of the subscribe functions will add the unsubscribe function to
-   * an internal array. You can then call `unsubscribeAll()` to unsubscribe all
+   * an internal array. You can then call `unsubAll()` to unsubscribe all
    * at once and clear the list.
    *
    * You can optionally pass in an array of unsubscribe functions to start with.
    *
-   * @param unsubs Optional array of unsubscribe functions. Defaults to an empty list.
+   * @param list Optional array of unsubscribe functions. Defaults to an empty list.
    */
   constructor(
     /** A list of unsubscribe functions for all subscribe calls that have been made. */
-    public unsubs: Unsubscribe[] = [],
+    public list: Unsubscribe[] = [],
   ) {}
 
   /**
@@ -172,21 +172,21 @@ export class Subscriptions {
    * The function passed in will be called immediately to add the listener,
    * and its Unsubscribe function will be returned.
    *
-   * The Unsubscribe will be added to the internal list of unsubs. You can unsubscribe all by calling `unsubscribeAll()`.
+   * The Unsubscribe function will be added to the internal list of unsubs. You can unsubscribe all by calling `unsubAll()`.
    *
    * @param subscribe The subscribe function, which returns an Unsubscribe. Will be called immediately.
    * @returns The Unsubscribe function for this subscription.
    */
   public subscribe(subscribe: () => Unsubscribe): Unsubscribe {
     const unsub = Subscribe.subscribe(subscribe);
-    this.pushUnsubscribe(unsub);
+    this.push(unsub);
     return unsub;
   }
 
   /**
    * Subscribe to an emitter event. Returns a function that will unsubscribe the listener.
    *
-   * The Unsubscribe will be added to the internal list of unsubs. You can unsubscribe all by calling `unsubscribeAll()`.
+   * The Unsubscribe function will be added to the internal list of unsubs. You can unsubscribe all by calling `unsubAll()`.
    *
    * @param eventEmitter The [EventEmitter](https://nodejs.org/api/events.html#class-eventemitter) to subscribe to.
    * @param eventName The name of the event to listen for.
@@ -199,14 +199,14 @@ export class Subscriptions {
     listener: (...args: any[]) => void,
   ): Unsubscribe {
     const unsub = Subscribe.subscribeEvent(eventEmitter, eventName, listener);
-    this.pushUnsubscribe(unsub);
+    this.push(unsub);
     return unsub;
   }
 
   /**
    * Subscribe to an event on a DOM object (Window or Node). Returns a function that will unsubscribe the listener.
    *
-   * The Unsubscribe will be added to the internal list of unsubs. You can unsubscribe all by calling `unsubscribeAll()`.
+   * The Unsubscribe function will be added to the internal list of unsubs. You can unsubscribe all by calling `unsubAll()`.
    *
    * @param domObj The DOM object to subscribe to for events.
    * @param eventName The name of the event to listen for.
@@ -215,7 +215,7 @@ export class Subscriptions {
    */
   public subscribeDOMEvent(domObj: Window | Node, eventName: string, listener: (...args: any[]) => void): Unsubscribe {
     const unsub = Subscribe.subscribeDOMEvent(domObj, eventName, listener);
-    this.pushUnsubscribe(unsub);
+    this.push(unsub);
     return unsub;
   }
 
@@ -223,7 +223,7 @@ export class Subscriptions {
    * Sets a timer which executes a function once the timer expires using `setTimeout`.
    * Returns an unsubscribe function that clears the timeout using `clearTimeout`.
    *
-   * The Unsubscribe will be added to the internal list of unsubs. You can unsubscribe all by calling `unsubscribeAll()`.
+   * The Unsubscribe function will be added to the internal list of unsubs. You can unsubscribe all by calling `unsubAll()`.
    *
    * @param handler A function to be executed after the timer expires.
    * @param delay The time, in milliseconds that the timer should wait before the specified function or code is executed. If this parameter is omitted, a value of 0 is used, meaning execute "immediately", or more accurately, the next event cycle.
@@ -237,7 +237,7 @@ export class Subscriptions {
   ): Unsubscribe {
     const timeout = setTimeout(handler, delay, args);
     const unsub = () => clearTimeout(timeout);
-    this.pushUnsubscribe(unsub);
+    this.push(unsub);
     return unsub;
   }
 
@@ -245,7 +245,7 @@ export class Subscriptions {
    * Repeatedly calls a function with a fixed time delay between each call using `setInterval`.
    * Returns an unsubscribe function that clears the interval using `clearInterval`.
    *
-   * The Unsubscribe will be added to the internal list of unsubs. You can unsubscribe all by calling `unsubscribeAll()`.
+   * The Unsubscribe function will be added to the internal list of unsubs. You can unsubscribe all by calling `unsubAll()`.
    *
    * @param handler A function to be executed after the timer expires.
    * @param delay The time, in milliseconds (thousandths of a second), the timer should delay in between executions of the specified function or code. Defaults to 0 if not specified.
@@ -259,27 +259,27 @@ export class Subscriptions {
   ): Unsubscribe {
     const interval = setInterval(handler, delay, args);
     const unsub = () => clearInterval(interval);
-    this.pushUnsubscribe(unsub);
+    this.push(unsub);
     return unsub;
   }
 
   /**
    * Pushes an unsubscribe function onto the subscription list.
    *
-   * You can unsubscribe all by calling `unsubscribeAll()`.
+   * You can unsubscribe all by calling `unsubAll()`.
    *
    * @param unsub The unsubscribe function to push to the subscription list.
    */
-  public pushUnsubscribe(unsub: Unsubscribe): void {
-    this.unsubs.push(unsub);
+  public push(unsub: Unsubscribe): void {
+    this.list.push(unsub);
   }
 
   /**
    * Call all unsubscribe functions and clear the unsubscribe list.
    */
-  public unsubscribeAll(): void {
-    Subscribe.unsubscribeAll(this.unsubs);
+  public unsubAll(): void {
+    Subscribe.unsubAll(this.list);
     // Empty the array, maintain the reference
-    this.unsubs.splice(0, this.unsubs.length);
+    this.list.splice(0, this.list.length);
   }
 }
