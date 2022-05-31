@@ -1,5 +1,3 @@
-# NOTE: This package has been renamed to `subscribe-easy`
-
 <h2 align="center">
   🔔 subscribe-easy
 </h2>
