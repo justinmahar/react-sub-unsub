@@ -33,6 +33,8 @@ When it's time to unsubscribe all listeners, just call `unsubAll()` to remove al
 
 You can also create a cleanup function using `createCleanup()` that will unsubscribe all listeners when called. This is particularly handy when used as the return value for [React effects](https://reactjs.org/docs/hooks-effect.html).
 
+For finer control or one-off subscriptions, you can use the static functions in the `Subscribe` class.
+
 See below for examples and more.
 
 ### Features include:
