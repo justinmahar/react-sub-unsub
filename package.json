@@ -75,5 +75,5 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2"
   },
-  "coreVersion": "2.2.8"
+  "coreVersion": "2.2.10"
 }
