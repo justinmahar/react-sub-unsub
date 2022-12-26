@@ -1,7 +1,7 @@
 /// <reference types="node" />
 import EventEmitter from 'events';
 /** Call this function to unsubscribe the listener. */
-export declare type Unsubscribe = () => void;
+export type Unsubscribe = () => void;
 /**
  * Static functions for subscribing and unsubscribing to and from events.
  */

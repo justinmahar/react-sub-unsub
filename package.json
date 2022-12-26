@@ -44,6 +44,10 @@
     "setTimeout",
     "setInterval"
   ],
+  "peerDependencies": {
+    "react": ">=16 || >=17 || >=18 || >=19 || >=20",
+    "react-dom": ">=16 || >=17 || >=18 || >=19 || >=20"
+  },
   "devDependencies": {
     "@babel/core": "^7.17.2",
     "@mdx-js/react": "^1.6.22",
@@ -64,12 +68,12 @@
     "eslint-plugin-storybook": "^0.5.12",
     "lockblocks": "^1.0.10",
     "prettier": "^2.5.1",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0",
     "react-html-props": "^1.0.32",
     "react-markdown": "^8.0.3",
     "typescript": "^4.5.5",
-    "webpack": "^5.75.0"
+    "webpack": "^5.75.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
   },
   "coreVersion": "2.2.8"
 }
