@@ -1,35 +1,50 @@
 <h2 align="center">
-  THIS PROJECT HAS MOVED TO [react-sub-unsub](https://www.npmjs.com/package/react-sub-unsub)
-</h2>
-
-<h2 align="center">
-  🔔 Subscribe Easy
+  🔔 react-sub-unsub
 </h2>
 
 <h3 align="center">
-  Manage subscriptions to JS events and timers with ease.
+  Manage React effect listeners with ease.
 </h3>
 <p align="center">
-  <a href="https://badge.fury.io/js/subscribe-easy" target="_blank" rel="noopener noreferrer">
-    <img src="https://badge.fury.io/js/subscribe-easy.svg" alt="npm Version" />
+  <a href="https://badge.fury.io/js/react-sub-unsub" target="_blank" rel="noopener noreferrer">
+    <img src="https://badge.fury.io/js/react-sub-unsub.svg" alt="npm Version" />
   </a>
-  <a href="https://github.com/justinmahar/subscribe-easy/" target="_blank" rel="noopener noreferrer">
+  <a href="https://github.com/justinmahar/react-sub-unsub/" target="_blank" rel="noopener noreferrer">
     <img src="https://img.shields.io/badge/GitHub-Source-success" alt="View project on GitHub" />
   </a>
-  <a href="https://github.com/justinmahar/subscribe-easy/actions?query=workflow%3ADeploy" target="_blank" rel="noopener noreferrer">
-    <img src="https://github.com/justinmahar/subscribe-easy/workflows/Deploy/badge.svg" alt="Deploy Status" />
+  <a href="https://github.com/justinmahar/react-sub-unsub/actions?query=workflow%3ADeploy" target="_blank" rel="noopener noreferrer">
+    <img src="https://github.com/justinmahar/react-sub-unsub/workflows/Deploy/badge.svg" alt="Deploy Status" />
+  </a>
+  <a href="https://github.com/sponsors/justinmahar" target="_blank" rel="noopener noreferrer">
+    <img src="https://img.shields.io/static/v1?label=Sponsor&message=%E2%9D%A4&logo=GitHub&color=%23fe8e86" alt="Sponsor"/>
   </a>
 </p>
 
 ## Documentation
 
-Read the **[official documentation](https://justinmahar.github.io/subscribe-easy/)**.
+Read the **[official documentation](https://justinmahar.github.io/react-sub-unsub/)**.
+
+## Donate 
+
+This project is the result of countless hours of work and I really hope it saves you hours of your own precious time.
+
+If this project helped you and you'd like to join others in showing support for the development of this project, I'd be honored if you chose to support the development of this project in one of two ways: by sponsoring me (monthly or one-time), or by buying me a coffee.
+
+<a href="https://github.com/sponsors/justinmahar">
+  <img src="https://justinmahar.github.io/react-sub-unsub/support/sponsor.png" alt="Sponsor via GitHub" height="35" />
+</a> <a href="https://paypal.me/thejustinmahar/5">
+  <img src="https://justinmahar.github.io/react-sub-unsub/support/coffee-1.png" alt="Buy me a coffee" height="35" />
+</a> <a href="https://paypal.me/thejustinmahar/15">
+  <img src="https://justinmahar.github.io/react-sub-unsub/support/coffee-3.png" alt="Buy me 3 coffees" height="35" />
+</a> <a href="https://paypal.me/thejustinmahar/25">
+  <img src="https://justinmahar.github.io/react-sub-unsub/support/coffee-5.png" alt="Buy me 5 coffees" height="35" />
+</a>
 
 ## Overview
 
-Take all the frustration (and memory leaks) out of adding and removing listeners!
+Take all the frustration (and memory leaks) out of adding and removing listeners in React!
 
-With this library, you can easily manage listeners, timers (intervals, timeouts), and anything else that follows the subscribe/unsubscribe pattern.
+With this library, you can easily manage listeners, timers (intervals, timeouts), and anything else that follows the subscribe/unsubscribe pattern in your effects.
 
 Simply use an instance of the `Subs` class in this library to subscribe to an event or timer. All unsubscribe functions are stored for later.
 
@@ -57,7 +72,7 @@ See below for examples and more.
 ## Installation
 
 ```
-npm i subscribe-easy
+npm i react-sub-unsub
 ```
 
 ## Quick Start
@@ -65,7 +80,7 @@ npm i subscribe-easy
 Create an instance of the `Subs` class and use that to manage subscriptions.
 
 ```jsx
-import { Subs } from 'subscribe-easy';
+import { Subs } from 'react-sub-unsub';
 ```
 
 ```jsx
@@ -132,7 +147,7 @@ At the end we will return a cleanup function that unsubscribes all listeners and
 import React from 'react';
 import { EventEmitter } from 'events';
 
-import { Subs } from 'subscribe-easy';
+import { Subs } from 'react-sub-unsub';
 
 export const eventEmitter = new EventEmitter();
 export const MyComponent = (props: any) => {
@@ -193,7 +208,7 @@ export const MyComponent = (props: any) => {
 If you'd like to call the functions used by `Subs` manually, you can use the static functions available in the `Subscribe` class:
 
 ```js
-import { Subscribe } from 'subscribe-easy';
+import { Subscribe } from 'react-sub-unsub';
 ```
 
 Call any of the following:
@@ -224,10 +239,10 @@ Feel free to submit a pull request for bugs or additions, and make sure to updat
 
 For major changes, open an issue first to discuss what you'd like to change.
 
-## ⭐ Found It Helpful? [Star It!](https://github.com/justinmahar/subscribe-easy/stargazers)
+## ⭐ Found It Helpful? [Star It!](https://github.com/justinmahar/react-sub-unsub/stargazers)
 
-If you found this project helpful, let the community know by giving it a [star](https://github.com/justinmahar/subscribe-easy/stargazers): [👉⭐](https://github.com/justinmahar/subscribe-easy/stargazers)
+If you found this project helpful, let the community know by giving it a [star](https://github.com/justinmahar/react-sub-unsub/stargazers): [👉⭐](https://github.com/justinmahar/react-sub-unsub/stargazers)
 
 ## License
 
-See [LICENSE.md](https://justinmahar.github.io/subscribe-easy/?path=/story/license--page).
+See [LICENSE.md](https://justinmahar.github.io/react-sub-unsub/?path=/story/license--page).
