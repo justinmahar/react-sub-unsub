@@ -1,4 +1,8 @@
 <h2 align="center">
+  THIS PROJECT HAS MOVED TO [react-sub-unsub](https://www.npmjs.com/package/react-sub-unsub)
+</h2>
+
+<h2 align="center">
   🔔 Subscribe Easy
 </h2>
 
