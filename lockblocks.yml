@@ -22,4 +22,6 @@ updateJson:
         merge: true
       - key: devDependencies
         merge: true
+    deleteFields:
+      - devDependencies.html-webpack-plugin
 updateYaml: []
