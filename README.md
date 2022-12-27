@@ -44,9 +44,9 @@ If this project helped you and you'd like to join others in showing support for 
 
 Take all the frustration (and memory leaks) out of adding and removing listeners in React!
 
-With this library, you can easily manage listeners, timers (intervals, timeouts), and anything else that follows the subscribe/unsubscribe pattern in your effects.
+With this library, you can easily manage listeners, JS timers (intervals, timeouts), and anything else that follows the subscribe/unsubscribe pattern in your React effects.
 
-Simply use an instance of the `Subs` class in this library to subscribe to an event or timer. All unsubscribe functions are stored for later.
+Simply use an instance of the `Subs` class in this library to subscribe to events or timers. All unsubscribe functions are stored for later.
 
 When it's time to unsubscribe all listeners, just call `unsubAll()` to remove all listeners and clear all timers. Easy as that.
 
@@ -77,71 +77,12 @@ npm i react-sub-unsub
 
 ## Quick Start
 
-Create an instance of the `Subs` class and use that to manage subscriptions.
-
-```jsx
-import { Subs } from 'react-sub-unsub';
-```
-
-```jsx
-// Use this object to subscribe and unsubscribe
-const subs = new Subs();
-
-// ➡️ Event emitter subscription
-subs.subscribeEvent(eventEmitter, 'my-event', myEventListener);
-
-// ➡️ DOM event subscription
-subs.subscribeDOMEvent(document, 'keypress', keyPressListener);
-
-// ➡️ Custom listener interface subscription
-subs.subscribe(() => {
-  thing.addObserver(thingObserver);
-  return () => thing.removeObserver(thingObserver);
-});
-
-// ➡️ setTimeout subscription
-subs.setTimeout(() => {
-  console.log('Timeout fired!');
-}, 2000);
-
-// ➡️ setInterval subscription
-subs.setInterval(() => {
-  console.log('Interval fired!');
-}, 1000);
-
-// ➡️ Push a custom unsubscribe function
-subs.push(() => {
-  console.log('Custom unsubscribe function!');
-});
-
-// You can access all unsub functions directly via `subs.list`
-console.log(`There are ${subs.list.length} subscriptions!`);
-```
-
-When it's time to unsubscribe all listeners, call `unsubAll()`:
-
-```jsx
-// Unsubscribe all listeners with one easy call!
-subs.unsubAll();
-```
-
-Or, for frameworks like React, you can create a cleanup function that can be called later by using `createCleanup()`:
-
-```jsx
-const cleanup = subs.createCleanup();
-// ...
-// Unsubscribe all listeners with the cleanup function
-cleanup();
-```
-
-## Example
-
-Since it's a common use case, below is a full example of adding/removing listeners in React using the `Subs` class.
+Below is a full example of adding/removing listeners in a React effect using the `Subs` class.
 
 In this example, we will subscribe to an event emitter, a DOM event, and a custom listener interface, as well as some
 timers. 
 
-At the end we will return a cleanup function that unsubscribes all listeners and timers using `createCleanup()`.
+At the end of the effect, we will return a cleanup function that unsubscribes all listeners and timers using `createCleanup()`.
 
 ```jsx
 import React from 'react';
@@ -200,6 +141,16 @@ export const MyComponent = (props: any) => {
   // ...
 
   return <div>My Component!</div>;
+};
+```
+
+If you need to perform other cleanup in your effect's return function, you can unsubscribe all listeners manually by calling `subs.unsubAll()`, like so:
+
+```jsx
+// Effect cleanup function
+return () => {
+  subs.unsubAll();
+  // ... Custom cleanup
 };
 ```
 
