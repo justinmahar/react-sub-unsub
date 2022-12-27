@@ -24,21 +24,25 @@
 
 Read the **[official documentation](https://justinmahar.github.io/react-sub-unsub/)**.
 
+[lock:donate]::🚫---------------------------------------
+
 ## Donate 
 
-This project is the result of countless hours of work and I really hope it saves you hours of your own precious time.
+If this project helped out or made your day a little brighter and you'd like to return the favor, why not buy me a coffee or become a sponsor? It'll make my day and help keep the project chugging along.
 
-If this project helped you and you'd like to join others in showing support for the development of this project, I'd be honored if you chose to support the development of this project in one of two ways: by sponsoring me (monthly or one-time), or by buying me a coffee.
+Plus, I'll do a little dance in your honor. Maybe not a very good one, but a dance nonetheless.
 
 <a href="https://github.com/sponsors/justinmahar">
-  <img src="https://justinmahar.github.io/react-sub-unsub/support/sponsor.png" alt="Sponsor via GitHub" height="35" />
+  <img src="https://justinmahar.github.io/react-kindling/support/sponsor.png" alt="Sponsor via GitHub" height="35" />
 </a> <a href="https://paypal.me/thejustinmahar/5">
-  <img src="https://justinmahar.github.io/react-sub-unsub/support/coffee-1.png" alt="Buy me a coffee" height="35" />
+  <img src="https://justinmahar.github.io/react-kindling/support/coffee-1.png" alt="Buy me a coffee" height="35" />
 </a> <a href="https://paypal.me/thejustinmahar/15">
-  <img src="https://justinmahar.github.io/react-sub-unsub/support/coffee-3.png" alt="Buy me 3 coffees" height="35" />
+  <img src="https://justinmahar.github.io/react-kindling/support/coffee-3.png" alt="Buy me 3 coffees" height="35" />
 </a> <a href="https://paypal.me/thejustinmahar/25">
-  <img src="https://justinmahar.github.io/react-sub-unsub/support/coffee-5.png" alt="Buy me 5 coffees" height="35" />
+  <img src="https://justinmahar.github.io/react-kindling/support/coffee-5.png" alt="Buy me 5 coffees" height="35" />
 </a>
+
+[/lock:donate]::---------------------------------------🚫
 
 ## Overview
 
@@ -174,13 +178,23 @@ Call any of the following:
 
 See the JS docs for each for more details.
 
+[lock:typescript]::🚫---------------------------------------
+
 ## TypeScript
 
 Type definitions have been included for [TypeScript](https://www.typescriptlang.org/) support.
 
+[/lock:typescript]::---------------------------------------🚫
+
+[lock:icon]::🚫---------------------------------------
+
 ## Icon Attribution
 
-Icon by [Twemoji](https://github.com/twitter/twemoji).
+Favicon by [Twemoji](https://github.com/twitter/twemoji).
+
+[/lock:icon]::---------------------------------------🚫
+
+[lock:contributing]::🚫---------------------------------------
 
 ## Contributing
 
@@ -189,6 +203,8 @@ Open source software is awesome and so are you. 😎
 Feel free to submit a pull request for bugs or additions, and make sure to update tests as appropriate. If you find a mistake in the docs, send a PR! Even the smallest changes help.
 
 For major changes, open an issue first to discuss what you'd like to change.
+
+[/lock:contributing]::---------------------------------------🚫
 
 ## ⭐ Found It Helpful? [Star It!](https://github.com/justinmahar/react-sub-unsub/stargazers)
 
