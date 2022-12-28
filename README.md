@@ -7,7 +7,7 @@
 </h3>
 <p align="center">
   <a href="https://badge.fury.io/js/react-sub-unsub" target="_blank" rel="noopener noreferrer">
-    <img src="https://badge.fury.io/js/react-sub-unsub.svg" alt="npm Version" />
+    <img src="https://badge.fury.io/js/react-sub-unsub.svg?badge" alt="npm Version" />
   </a>
   <a href="https://github.com/justinmahar/react-sub-unsub/" target="_blank" rel="noopener noreferrer">
     <img src="https://img.shields.io/badge/GitHub-Source-success" alt="View project on GitHub" />
