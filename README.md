@@ -8,8 +8,7 @@
 <p align="center">
   <a href="https://badge.fury.io/js/react-sub-unsub" target="_blank" rel="noopener noreferrer"><img src="https://badge.fury.io/js/react-sub-unsub.svg?badge" alt="npm Version" /></a>&nbsp;
   <a href="https://github.com/justinmahar/react-sub-unsub/" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/GitHub-Source-success" alt="View project on GitHub" /></a>&nbsp;
-  <a href="https://github.com/justinmahar/react-sub-unsub/actions?query=workflow%3ADeploy" target="_blank" rel="noopener noreferrer"><img src="https://github.com/justinmahar/react-sub-unsub/workflows/Deploy/badge.svg" alt="Deploy Status" /></a>&nbsp;
-  <a href="https://ko-fi.com/justinmahar"><img src="https://img.shields.io/static/v1?label=Buy%20me%20a%20coffee&message=%E2%9D%A4&logo=KoFi&color=%23fe8e86" alt="Buy me a coffee" /></a>
+  <a href="https://github.com/justinmahar/react-sub-unsub/actions?query=workflow%3ADeploy" target="_blank" rel="noopener noreferrer"><img src="https://github.com/justinmahar/react-sub-unsub/workflows/Deploy/badge.svg" alt="Deploy Status" /></a>
 </p>
 <!-- [lock:donate-badges] 🚫--------------------------------------- -->
 <p align="center">
