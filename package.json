@@ -1,7 +1,7 @@
 {
   "name": "react-sub-unsub",
   "version": "2.2.3",
-  "coreVersion": "3.0.4",
+  "coreVersion": "3.0.7",
   "author": "Justin Mahar <contact@justinmahar.com>",
   "description": "Manage React effect listeners with ease.",
   "homepage": "https://justinmahar.github.io/react-sub-unsub/",
