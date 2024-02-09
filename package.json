@@ -1,7 +1,7 @@
 {
   "name": "react-sub-unsub",
   "version": "2.2.1",
-  "coreVersion": "3.0.1",
+  "coreVersion": "3.0.4",
   "author": "Justin Mahar <contact@justinmahar.com>",
   "description": "Manage React effect listeners with ease.",
   "homepage": "https://justinmahar.github.io/react-sub-unsub/",
@@ -13,7 +13,7 @@
     "start": "npm run storybook",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "preship": "npm run build && git diff-index --quiet HEAD && npm version patch -m \"Build, version, and publish.\"",
+    "preship": "npm run build && git diff-index HEAD && npm version patch -m \"Build, version, and publish.\"",
     "ship": "npm publish --access public",
     "postship": "git push",
     "update": "rm -rf .lockblocks && git clone -q git@github.com:justinmahar/react-kindling.git ./.lockblocks && lockblocks ./.lockblocks . --verbose && rm -rf .lockblocks && echo '' && echo ' → Be sure to run `npm i` to install new dependencies.' && echo ''"
